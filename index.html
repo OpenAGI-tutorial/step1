@@ -13,44 +13,131 @@
       font-family: Arial, sans-serif;
     "
   >
-    <h1>OpenAGI 101 - Step 1</h1>
+    <h1>OpenAGI 101 tutorial</h1>
+
+    <p style="font-size: 2.5rem; font-weight: 100; margin: 2rem 0">Step 1</p>
+
+    <p style="font-size: 1.5rem; margin: 0 0 3rem 0">
+      Connect our frontend JavaScript application to curl-like LLM API calls
+    </p>
 
     <h2>TL;DR:</h2>
 
     <ul>
-      <li>You DO NOT need a server to use AI in your web page.</li>
       <li>
-        No python allowed anywhere. Everything is and will be done in normal
-        JavaScript.
+        Our result will be 100% done in JavaScript, using (React-like) Preact
+        library and calling AI API directly with simple fetch calls.
       </li>
+      <li>
+        You can use AI in static frontend build: this means one index.html file
+        and one JavaScript file. Nothing else, all below 10KB.
+      </li>
+      <li>
+        No python anywhere. Everything is and will be done in normal JavaScript
+        like we have been doing for decades.
+      </li>
+
+      <li>
+        No need to install anything, application we create in this step is
+        already running <a href="#live">below</a>.
+      </li>
+
       <li>
         Free models on Groq work a lot faster than those charging money for
         slowness.
       </li>
+    </ul>
+
+    <h2>Intro</h2>
+
+    <p>
+      The first step in our journey of reimplementing a fully functional OpenAGI
+      platform is about connecting our JavaScript application to LLM API.
+    </p>
+
+    <p>
+      When you know how to build the system itself, you know best how to use it
+      and why it works the way it does.
+    </p>
+
+    <p>
+      Implementing our own backend will happen much later, when we will need a
+      system that runs in the background without you having a browser window
+      open.<br />It will be generating new results in the background, and then
+      sending them to you, when you open the application in your browser.<br />
+      This adds huge amount of complexity overhead and is not needed for our
+      live "hands on" experiments we are building here, so we will skip it for
+      now.
+    </p>
+
+    <h2>Buyer beware</h2>
+
+    <p>
+      Scammers try to oversell you their "AI" products by charging you huge
+      markups on paid API calls, some even worse, reaching infinity% markup on
+      the free 0$ per token API usage. <br />That's the real reason why they
+      "must" have a server. They're reselling essentially free service,
+      "providing" a cheap wordpress template around the real value: API
+      response.<br />
+      Why do you think there is a new "revolutionary" "AI" application released
+      every day? Because printing text from LLM API through a template does not
+      take a real developer to create.
+      <br />They also conveniently never release their backend code as Open
+      source, wonder why... because there was never anything of any real value
+      there in the first place?
+    </p>
+
+    <p>
+      Purpose of this step is to prove you can use AI for free without having
+      any server at all and how easy is using AI in the real world, when done
+      with right technologies and approaches.<br />
+      This means: without all useless python garbage "tutorials" floating around
+      reinventing the wheel 10 times over just to get a simple AI response
+      printed to our web page after 45 seconds.
+    </p>
+
+    <h2>Source code</h2>
+
+    <p>To follow along with the source code shown in video:</p>
+
+    <ol>
       <li>
-        You DO NOT need to install anything, application built in this step is
-        allready running below.
-      </li>
-      <li>
-        You can use AI models for free. No credit card required:
-        <a href="https://console.groq.com/keys" target="_blank"
-          >https://console.groq.com/keys</a
+        Open:
+        <a href="https://github.com/OpenAGI-tutorial/step1" target="_blank"
+          >https://github.com/OpenAGI-tutorial/step1</a
         >
       </li>
-    </ul>
+      <li>Press the "dot (.)" key on your keyboard (below L).</li>
+    </ol>
+
+    <h2>Video tutorial</h2>
+
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/j-_Av9SzOj4?si=-B9882QGjL1E2uUw"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+    ></iframe>
 
     <h2>Live application</h2>
 
     <p>
-      100% done in JavaScript, using Preact and calling AI API directly with
-      simple fetch calls.
-    </p>
-    <p>
-      No python, no server, no backend, no database, no paying, no nonesense.
-    </p>
-    <p>
-      Just JavaScript, 100% client side, running below without you needing to
-      install anything.
+      We can use AI models for free, forever.
+      <br />
+      Groq API key can be generated on:
+      <a href="https://console.groq.com/keys" target="_blank"
+        >https://console.groq.com/keys</a
+      >, simply log in with your GitHub or any email.
+      <br />
+      You can jump through few more hoops, to get a free API key for Google's
+      models:
+      <a href="https://aistudio.google.com/apikey" target="_blank"
+        >https://aistudio.google.com/apikey</a
+      >
     </p>
 
     <p>
@@ -75,14 +162,21 @@
     </p>
 
     <p>
-      There is zero system prompt added, you need to specify JSON shape yourself
-      with a simple description "what" you want "where" in the response.<br />Defining
-      JSON shape is literally WYAIWYG: "what you ask for is what you get".
-      Garbage in garbage out.<br />Asking for "use JSON format" is good for
-      start, but not enough as it is unstable in the long run. Keys might change
-      names or locations.<br />You will not know on which names to rely to find
-      what you asked for when programming. Be specific on names and shapes
-      (array, object, number, etc.).
+      There is zero hidden big brother system prompt added or any other unasked
+      for "alignment" forced on you here.<br />What you submit is precisely what
+      gets sent to AI and response is precisely what AI returned. Nothing more,
+      nothing less.<br />Use it as irresponsibly as you want, it is YOUR code,
+      on YOUR machine, and it is YOUR decision what you will do with it.
+    </p>
+
+    <p>
+      You need to specify JSON shape yourself with a simple description "what"
+      you want "where".<br />Defining JSON shape is literally
+      WYSIWYG: "what you say is what you get". Garbage in garbage out.<br />Asking
+      for "use JSON format" is good for start, but not enough as it is unstable
+      in the long run. Keys might change names or locations.<br />You will not
+      know on which names to rely to find what you asked for when programming.
+      Be specific on names and shapes (array, object, number, etc.).
     </p>
 
     <p>
@@ -96,50 +190,23 @@
     </p>
 
     <p>
-      Key is saved in your browser's local storage so you don't have to enter it
-      again next time you visit the page. Try refreshing.
+      All inputs are saved in your browser's local storage so you don't have to
+      enter API key again next time you visit the page.
     </p>
 
-    <h3>Try it out below 👇</h3>
+    <h3 style="scroll-margin-top: 1rem" id="live">Try it out below 👇</h3>
 
     <iframe
       src="https://openagi-tutorial-1.netlify.app/"
       frameborder="0"
-      style="width: 100%; min-height: 40rem"
+      style="width: 95%; margin: auto; min-height: 80rem"
       id="deploy"
     ></iframe>
 
     <p>
       <a href="https://openagi-tutorial-1.netlify.app/" target="_blank"
         >https://openagi-tutorial-1.netlify.app/</a
-      >👈 Click to open the application above standalone in a new tab
+      >👈 Click to open the application above standalone in a new tab<br /><br /><br /><br /><br />.
     </p>
-
-    <h2>Source code</h2>
-
-    <p>To follow along with the video:</p>
-
-    <ol>
-      <li>
-        Open:
-        <a href="https://github.com/OpenAGI-tutorial/step1" target="_blank"
-          >https://github.com/OpenAGI-tutorial/step1</a
-        >
-      </li>
-      <li>Press the "dot (.)" key on your keyboard.</li>
-    </ol>
-
-    <h2>Video tutorial</h2>
-
-    <iframe
-      width="560"
-      height="315"
-      src="https://www.youtube.com/embed/j-_Av9SzOj4?si=-B9882QGjL1E2uUw"
-      title="YouTube video player"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      referrerpolicy="strict-origin-when-cross-origin"
-      allowfullscreen
-    ></iframe>
   </body>
 </html>
