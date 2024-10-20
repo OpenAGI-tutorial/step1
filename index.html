@@ -1,23 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OpenAGI 101 | Step 1</title>
-</head>
-<body>
-    <h1>OpenAGI 101 tutorial - Step 1</h1>
-    
-    <iframe src="https://openagi-tutorial-1.netlify.app/" style="width: 100%; min-height: 50vh;" id="deploy"></iframe>
-                
-    <script>
-        const div = document.getElementById("deploy")
-        div.onload = function () {
-            div.style.height =
-                div.contentWindow.document.body.scrollHeight + 'px'
-        }
-    </script>
-        
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/j-_Av9SzOj4?si=-B9882QGjL1E2uUw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</body>
+  </head>
+  <body
+    style="
+      display: grid;
+      place-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    "
+  >
+    <h1>OpenAGI 101 - Step 1</h1>
+
+    <h2>TL;DR:</h2>
+
+    <ul>
+      <li>You DO NOT need a server to use AI in your web page.</li>
+      <li>
+        No python allowed anywhere. Everything is and will be done in normal
+        JavaScript.
+      </li>
+      <li>
+        Free models on Groq work a lot faster than those charging money for
+        slowness.
+      </li>
+      <li>
+        You DO NOT need to install anything, application built in this step is
+        allready running below.
+      </li>
+      <li>
+        You can use AI models for free. No credit card required:
+        <a href="https://console.groq.com/keys" target="_blank"
+          >https://console.groq.com/keys</a
+        >
+      </li>
+    </ul>
+
+    <h2>Live application</h2>
+
+    <p>
+      100% done in JavaScript, using Preact and calling AI API directly with
+      simple fetch calls.
+    </p>
+    <p>
+      No python, no server, no backend, no database, no paying, no nonesense.
+    </p>
+    <p>
+      Just JavaScript, 100% client side, running below without you needing to
+      install anything.
+    </p>
+
+    <p>
+      After entering your Groq API key, select a model in the dropdown. Start
+      with the latest llama-3.2 models.<br />
+
+      The size of the model will affect your generate speed, 1B is fast but less
+      smart than 3B or even 90B which is a lot smarter but also slower.
+    </p>
+
+    <p>
+      When you Submit, the AI will generate a response based on the prompt you
+      entered. When "Loading..." is done, scroll to the bottom of the
+      application to see it.
+    </p>
+
+    <p>
+      API call is configured to return JSON because text in this shape makes a
+      lot more sense in real programming.<br />
+      JSON will be parsed to generate data for our application code in later
+      steps of our tutorial.
+    </p>
+
+    <p>
+      There is zero system prompt added, you need to specify JSON shape yourself
+      with a simple description "what" you want "where" in the response.<br />Defining
+      JSON shape is literally WYAIWYG: "what you ask for is what you get".
+      Garbage in garbage out.<br />Asking for "use JSON format" is good for
+      start, but not enough as it is unstable in the long run. Keys might change
+      names or locations.<br />You will not know on which names to rely to find
+      what you asked for when programming. Be specific on names and shapes
+      (array, object, number, etc.).
+    </p>
+
+    <p>
+      Compare the quality of responses using different models. Submit again to
+      use the new model with the same prompt.
+    </p>
+
+    <p>
+      💡 Tip: You can use the same API key for all models, no need to create a
+      new one.
+    </p>
+
+    <p>
+      Key is saved in your browser's local storage so you don't have to enter it
+      again next time you visit the page. Try refreshing.
+    </p>
+
+    <h3>Try it out below 👇</h3>
+
+    <iframe
+      src="https://openagi-tutorial-1.netlify.app/"
+      frameborder="0"
+      style="width: 100%; min-height: 40rem"
+      id="deploy"
+    ></iframe>
+
+    <p>
+      <a href="https://openagi-tutorial-1.netlify.app/" target="_blank"
+        >https://openagi-tutorial-1.netlify.app/</a
+      >👈 Click to open the application above standalone in a new tab
+    </p>
+
+    <h2>Source code</h2>
+
+    <p>To follow along with the video:</p>
+
+    <ol>
+      <li>
+        Open:
+        <a href="https://github.com/OpenAGI-tutorial/step1" target="_blank"
+          >https://github.com/OpenAGI-tutorial/step1</a
+        >
+      </li>
+      <li>Press the "dot (.)" key on your keyboard.</li>
+    </ol>
+
+    <h2>Video tutorial</h2>
+
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/j-_Av9SzOj4?si=-B9882QGjL1E2uUw"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+    ></iframe>
+  </body>
 </html>
